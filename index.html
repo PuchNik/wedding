@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <!-- ============================================ -->
+    <!-- HEAD: Метаданные, стили и шрифты -->
+    <!-- ============================================ -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Приглашение на свадьбу</title>
+        <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"
+            type="text/javascript"
+        ></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <!-- ============================================ -->
+            <!-- КАРТОЧКА ПРИГЛАШЕНИЯ: Первоначальный экран -->
+            <!-- ============================================ -->
+            <div class="card-container">
+                <div class="card">
+                    <h1 class="main-title">Приглашение</h1>
+                    <div class="subtitle-wedding-container">
+                        <div class="subtitle-wedding">на свадьбу</div>
+                        <div class="divider"></div>
+                    </div>
+                    <div class="subtitle">
+                        Будем счастливы разделить этот день<br />
+                        вместе с вами
+                    </div>
+                    <div class="countdown-container">
+                        <div class="countdown" id="countdown">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="days"
+                                    >0</span
+                                >
+                                <span class="countdown-label">дней</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="hours"
+                                    >0</span
+                                >
+                                <span class="countdown-label">часов</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="minutes"
+                                    >0</span
+                                >
+                                <span class="countdown-label">минут</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="seconds"
+                                    >0</span
+                                >
+                                <span class="countdown-label">секунд</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка открытия приглашения -->
+                <button class="flip-btn" onclick="toggleContent()">
+                    Открыть приглашение
+                </button>
+            </div>
+
+            <!-- ============================================ -->
+            <!-- КОНТЕНТ ПРИГЛАШЕНИЯ: Основная информация -->
+            <!-- ============================================ -->
+            <div class="content-wrapper hidden" id="contentWrapper">
+                <div class="content-container">
+                    <!-- Заголовок: имена и дата -->
+                    <div class="header-section">
+                        <h2 class="names">Андрей & Юлия</h2>
+                        <p class="date">14 августа 2026</p>
+                    </div>
+
+                    <!-- Основное фото пары -->
+                    <div class="photo-section">
+                        <div class="photo-frame">
+                            <img
+                                src="photos/main.jpg"
+                                alt="Андрей и Юлия"
+                                class="couple-photo"
+                                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%238b6f47%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EФото молодожен%3C/text%3E%3C/svg%3E'"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- ТЕКСТ ПРИГЛАШЕНИЯ -->
+                    <!-- ============================================ -->
+                    <div class="content-section">
+                        <div class="invitation-text">
+                            <h3 class="invitation-title">Дорогой гость!</h3>
+                            <p class="invitation-subtitle">
+                                Мы рады сообщить вам, что 14.08.2026 состоится
+                                самое главное торжество <br />
+                                в нашей жизни – день нашей свадьбы!<br />
+                                Приглашаем вас разделить с нами радость этого
+                                незабываемого дня.
+                            </p>
+                            <p class="invitation-ps">
+                                P.S. с любовью Андрей и Юлия
+                            </p>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- СЕКЦИЯ С ЦИТАТОЙ И ФОТО -->
+                        <!-- ============================================ -->
+                        <div class="quote-section">
+                            <div class="quote-photo-container">
+                                <img
+                                    src="photos/photo-love.JPG"
+                                    alt="Андрей и Юлия"
+                                    class="quote-photo"
+                                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%238b6f47%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EФото%3C/text%3E%3C/svg%3E'"
+                                />
+                            </div>
+                            <div class="quote-text">
+                                <p class="quote">
+                                    Там, где посеяна любовь, растёт радость
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- БЛОК С ЖЕНИХОМ И НЕВЕСТОЙ -->
+                        <!-- ============================================ -->
+                        <div class="couple-section">
+                            <div class="couple-block groom-block">
+                                <div class="couple-photo-wrapper">
+                                    <img
+                                        src="photos/groom.jpg"
+                                        alt="Жених"
+                                        class="couple-individual-photo"
+                                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%238b6f47%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EЖених%3C/text%3E%3C/svg%3E'"
+                                    />
+                                </div>
+                                <h3 class="couple-name">Андрей</h3>
+                            </div>
+                            <div class="couple-block bride-block">
+                                <div class="couple-photo-wrapper">
+                                    <img
+                                        src="photos/bride.jpg"
+                                        alt="Невеста"
+                                        class="couple-individual-photo"
+                                        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%238b6f47%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EНевеста%3C/text%3E%3C/svg%3E'"
+                                    />
+                                </div>
+                                <h3 class="couple-name">Юлия</h3>
+                            </div>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- БЛОК ТРАПЕЗЫ: Информация о меню -->
+                        <!-- ============================================ -->
+                        <div class="meal-section">
+                            <h3 class="meal-title">Трапеза</h3>
+                            <p class="meal-description">
+                                Меню разнообразно, поэтому сообщите нам заранее,
+                                если у вас есть какие-либо предпочтения или
+                                диетические ограничения.
+                            </p>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- БЛОК ПОЖЕЛАНИЙ ПО ПОДАРКАМ -->
+                        <!-- ============================================ -->
+                        <div class="gifts-section">
+                            <h3 class="gifts-title">Пожелания по подаркам</h3>
+                            <p class="gifts-description">
+                                Ваше присутствие в день нашей свадьбы – самый
+                                значимый подарок для нас! Мы понимаем, что
+                                дарить цветы на свадьбу – это традиция, но мы не
+                                сможем насладиться их красотой в полной мере...
+                                будем рады любой другой альтернативе (ром/белое
+                                вино или в денежном эквиваленте).
+                            </p>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- КНОПКА ПЕРЕХОДА НА СВАДЕБНОЕ РАСПИСАНИЕ -->
+                        <!-- ============================================ -->
+                        <div class="schedule-button-container">
+                            <a href="schedule.html" class="schedule-btn">
+                                Свадебное расписание
+                            </a>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- ФОТО ПАРЫ -->
+                        <!-- ============================================ -->
+                        <div class="embrace-photo-section">
+                            <div class="embrace-photo-container">
+                                <img
+                                    src="photos/embrace.JPG"
+                                    alt="Андрей и Юлия"
+                                    class="embrace-photo"
+                                    onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23f0e6d2%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%238b6f47%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EФото%3C/text%3E%3C/svg%3E'"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- ЯНДЕКС КАРТА: Геопозиция места проведения -->
+                        <!-- ============================================ -->
+                        <div class="map-section">
+                            <h3 class="map-title">📍 Место проведения</h3>
+                            <div id="yandex-map" class="yandex-map"></div>
+                        </div>
+
+                        <!-- ============================================ -->
+                        <!-- RSVP: Подтверждение присутствия -->
+                        <!-- ============================================ -->
+                        <div class="rsvp">
+                            <p>
+                                Пожалуйста, подтвердите ваше присутствие до 3
+                                марта
+                            </p>
+                            <p class="contact">+7 (925) 807 - 92 - 05</p>
+                        </div>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- TELEGRAM ЧАТ: Ссылка на группу -->
+                    <!-- ============================================ -->
+                    <div class="telegram-section">
+                        <a
+                            href="https://t.me/+GbGKdkNr-Cs2YThi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="telegram-link"
+                        >
+                            <span class="telegram-icon">💬</span>
+                            <span class="telegram-text">Чат в Telegram</span>
+                        </a>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- ФУТЕР: Заключительная подпись -->
+                    <!-- ============================================ -->
+                    <div class="footer-section">
+                        <p class="closing">
+                            С любовью и нетерпением ждем встречи,
+                        </p>
+                        <p class="signature">Андрей & Юлия</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- SCRIPTS: JavaScript функциональность -->
+        <!-- ============================================ -->
+        <script src="script.js"></script>
+    </body>
+</html>
